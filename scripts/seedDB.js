@@ -16,23 +16,23 @@ mongoose.connect(MONGO_URL,MONGO_OPTIONS);
 
 const bookSeed = [
   {
-    authors: ["Olisadebe Collins"],    
+    authors: ["Olisadebe Collins", "Mariusz B"],    
     description: "Set in a dark vision of the near future, a terrifying reality TV show is taking place. Twelve boys and twelve girls are forced to appear in a live event called The Hunger Games. There is only one rule: kill or be killed. When sixteen-year-old Katniss Everdeen steps forward to take her younger sister's place in the games, she sees it as a death sentence. But Katniss has been close to death before. For her, survival is second nature.",
-    image: "Some image ONE",
+    image: "https://qph.fs.quoracdn.net/main-qimg-96e4fd334a73784d16842e477422e0c5",
     link: "link to the book",
     title: "Hello World"
   },
   {
     authors: ["Suzanne Collins"],
     description: "Set in a dark vision of the near future, a terrifying reality TV show is taking place. Twelve boys and twelve girls are forced to appear in a live event called The Hunger Games. There is only one rule: kill or be killed. When sixteen-year-old Katniss Everdeen steps forward to take her younger sister's place in the games, she sees it as a death sentence. But Katniss has been close to death before. For her, survival is second nature.",
-    image: "Some image TWO",
+    image: "https://qph.fs.quoracdn.net/main-qimg-96e4fd334a73784d16842e477422e0c5",
     link: "link to the book",
     title: "Hello World"
   },
   {
     authors: ["Suzanne Joints"],
-    descriptionat: "Set in a dark vision of the near future, a terrifying reality TV show is taking place. Twelve boys and twelve girls are forced to appear in a live event called The Hunger Games. There is only one rule: kill or be killed. When sixteen-year-old Katniss Everdeen steps forward to take her younger sister's place in the games, she sees it as a death sentence. But Katniss has been close to death before. For her, survival is second nature.",
-    image: "Some image THREE",
+    description: "Set in a dark vision of the near future, a terrifying reality TV show is taking place. Twelve boys and twelve girls are forced to appear in a live event called The Hunger Games. There is only one rule: kill or be killed. When sixteen-year-old Katniss Everdeen steps forward to take her younger sister's place in the games, she sees it as a death sentence. But Katniss has been close to death before. For her, survival is second nature.",
+    image: "https://qph.fs.quoracdn.net/main-qimg-96e4fd334a73784d16842e477422e0c5",
     link: "link to the book",
     title: "Hello World"
   }

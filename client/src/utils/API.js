@@ -1,13 +1,15 @@
 import axios from "axios";
 
-const BASEURL = "http://localhost:3000";
-const QUERY = "/api/books";
-
-// Export an object with a "search" method that searches the books
+// apis calls
 export default  {
-  searchBooks:  function collectBooks() {
-    return axios.get(BASEURL + QUERY)
-      
-
+  searchBooks:  function() {
+    return axios.get("/api/books")
+  }, 
+  deleteBook:   function(id) {
+    return  axios.delete("/api/books/" + id);
+  },
+  searchGBooks: function(id) {
+    console.log("looking for " +id)
+    return axios.post("/api/gbooks/" + id);
   }
 };

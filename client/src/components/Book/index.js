@@ -6,7 +6,10 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import Input from '@material-ui/core/Input';
 import { makeStyles } from '@material-ui/core/styles';
+import { spacing } from '@material-ui/system';
 
 const useStyles = makeStyles({
   root: {
@@ -16,11 +19,24 @@ const useStyles = makeStyles({
     height: 140,
   },
 });
+
+
+
 const BookCard = (props) => {
+
+  function handleDelete(event) {
+    event.preventDefault()
+
+    const removeId = event.target.dataset.remove
+    console.log(removeId)
+
+
+  }
 
   const classes = useStyles();
 
   return (
+    <Box mt={2} label={props.remove}>
     <Card>
       <CardActionArea>
         <CardMedia
@@ -31,7 +47,7 @@ const BookCard = (props) => {
           <Typography gutterBottom variant="h5" component="h2">
             {props.title}
           </Typography>
-          <Typography gutterBottom variant="h7" component="h2">
+          <Typography gutterBottom variant="h6" component="h2">
             Written by {props.authors.join(", ")}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
@@ -43,11 +59,17 @@ const BookCard = (props) => {
         <Button size="small" color="primary">
           View
         </Button>
+        
         <Button size="small" color="primary">
-          Delete
+          <span data-remove={props.remove}  onClick={handleDelete}>
+            Delete 
+          </span>
         </Button>
+        
       </CardActions>
     </Card>
+    </Box>
+    
   );
 };
 

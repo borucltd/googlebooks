@@ -26,7 +26,10 @@ const Search = () => {
   const classes = useStyles()
   const [books, setBooks] = useState([])
   const [phrase, setPhrase] = useState('')
+  
    
+  
+
   function handleSubmit(event){
     event.preventDefault();
     searchGBook(phrase)
@@ -53,11 +56,18 @@ const Search = () => {
 
   // saves a book to the database
   function saveBook(id) {
-  console.log("Making request to backend, save book number: " + id)
-  //console.log(JSON.stringify(books[id]))
-  API.saveBook(books[id])
-  .then( res => console.log("SAVED"))
-  .catch(err => console.log(err))
+  
+    console.log("Making request to backend, save book number: " + id)
+    //console.log(JSON.stringify(books[id]))
+    API.saveBook(books[id])
+    .then( res => {
+      // remove a book, terrible way
+      const removedBook = books.splice(id,1)
+      setBooks([])
+      setBooks(books)
+      console.log("SAVED")
+    })
+    .catch(err => console.log(err))
   }
 
   // here we change objects from google API to match mongo model
@@ -105,6 +115,9 @@ const Search = () => {
                 book.description = "Unknown"
               }
               break;
+            default:
+              console.log("Unknown key")
+              break;
           }
         }
         )
@@ -145,13 +158,13 @@ const Search = () => {
               </Button>
           </form>
                      
-          {books.map((book,index) => {
+          { books.map((book,index) => {
           return (
             <Box mt={2} key={index}>
               <Card>
                 <CardActionArea>
                   <CardMedia title={book.title}>
-                  <img src={book.image}  width="50"  height="50" alt="picture"/>
+                  <img src={book.image}  width="50"  height="50" alt="Can't download"/>
                   </CardMedia>
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
@@ -167,12 +180,16 @@ const Search = () => {
                 </CardActionArea>
                 <CardActions>
                   <Button size="small" color="primary">
-                    <a href={book.link} target="_blank" style={{textDecoration: "none"}}>
+                    <a href={book.link} target="_blank" style={{textDecoration: "none"}} rel="noopener noreferrer">
                       View
                     </a>
                   </Button>
-                  <Button size="small" color="primary">
-                    <span   onClick={() => saveBook(index)}>
+                  <Button size="small" color="primary"  >
+                    <span  disabled onClick={(event) => {
+                      event.preventDefault()
+                      saveBook(index)
+
+                      }}>
                       Save 
                     </span>
                   </Button>

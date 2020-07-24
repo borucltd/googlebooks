@@ -1,26 +1,13 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 import Box from '@material-ui/core/Box';
-import Book from "../../components/Book";
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Input from '@material-ui/core/Input';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import { spacing } from '@material-ui/system';
-
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 140,
-  },
-});
 
 const Saved = () => {
 
@@ -35,7 +22,6 @@ const Saved = () => {
     console.log("Loading books from mongodb.")
     API.searchBooks()
     .then(res => {
-      console.log( res.data.length)
       if (res.data.length) {
         setBooks(res.data)
       } else {
@@ -72,7 +58,7 @@ const Saved = () => {
             <Card>
               <CardActionArea>
                 <CardMedia title={book.title}>
-                <img src={book.image}  width="50"  height="50" alt="picture"/>
+                <img src={book.image}  width="50"  height="50" alt="Can't download"/>
                 </CardMedia>
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
@@ -88,7 +74,7 @@ const Saved = () => {
               </CardActionArea>
               <CardActions>
                 <Button size="small" color="primary">
-                  <a href={book.link} target="_blank" style={{textDecoration: "none"}}>
+                  <a href={book.link} target="_blank" style={{textDecoration: "none"}} rel="noopener noreferrer">
                     View
                   </a>
                 </Button>

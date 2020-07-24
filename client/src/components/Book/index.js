@@ -7,18 +7,11 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Input from '@material-ui/core/Input';
-import { makeStyles } from '@material-ui/core/styles';
-import { spacing } from '@material-ui/system';
 
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 140,
-  },
-});
+
+
+
+
 
 
 
@@ -33,7 +26,7 @@ const BookCard = (props) => {
 
   }
 
-  const classes = useStyles();
+
 
   return (
     <Box mt={2} label={props.remove}>

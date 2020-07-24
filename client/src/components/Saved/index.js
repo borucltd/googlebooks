@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 import Box from '@material-ui/core/Box';
 import Book from "../../components/Book";
+import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import Input from '@material-ui/core/Input';
+import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { spacing } from '@material-ui/system';
 
@@ -21,8 +21,6 @@ const useStyles = makeStyles({
     height: 140,
   },
 });
-
-
 
 const Saved = () => {
 
@@ -42,6 +40,7 @@ const Saved = () => {
         setBooks(res.data)
       } else {
         setBooks([{
+          _id: "empty",
           title: "There are no books",
           image: "https://icon-library.net/images/empty-icon/empty-icon-0.jpg",
           authors: ["Your database"],

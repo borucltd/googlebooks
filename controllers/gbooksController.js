@@ -1,6 +1,9 @@
 const axios = require("axios");
 
-const gkey=process.env.KEY 
+const gkey=process.env.KEY
+//const gurl=process.env.GKEY || "https://www.googleapis.com/books/v1/volumes"
+//GET https://www.googleapis.com/books/v1/volumes?q=search+terms
+//GET https://www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes&key=yourAPIKey
 
 module.exports = {
   search: async function(req,res) {
